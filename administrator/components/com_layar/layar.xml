@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="component" version="1.5.0" method="upgrade">
+    <name>layar</name>
+    <author>GPL@avui</author>
+    <creationDate>13/01/2011</creationDate>
+    <license>GNU/GPL</license>
+    <version>1.0</version>
+    <description>This component was created by Not Web Design's Joomla Component Creator.</description>
+
+    <!-- installation part -->
+    <install>
+        <queries>
+           
+        </queries>
+    </install>
+
+    <installfile>install.layar.php</installfile>
+    <uninstallfile>uninstall.layar.php</uninstallfile>
+
+    <!-- user part -->
+    <files folder="components/com_layar">
+        <filename>controller.php</filename>
+        <filename>index.html</filename>
+        <filename>layar.php</filename>
+        <folder>models</folder>
+        <folder>views</folder>
+	<folder>helpers</folder>
+	<folder>assets</folder>
+    </files>
+
+    <languages folder="language/en-GB">
+        <language tag="en-GB">en-GB.com_layar.ini</language>
+    </languages>
+
+    <!-- administration part -->
+    <administration>
+
+    <menu task="default" img="js/ThemeOffice/component.png">layar</menu>
+    <submenu>
+        <menu link="option=com_layar">layar</menu>
+    </submenu>
+
+    <files>
+        <filename>layar.xml</filename>
+    </files>
+    <files folder="administrator/components/com_layar">
+        <filename>config.xml</filename>
+        <filename>controller.php</filename>
+        <filename>index.html</filename>
+        <filename>install.layar.php</filename>
+        <filename>layar.php</filename>
+        <filename>uninstall.layar.php</filename>
+        <folder>helpers</folder>
+        <folder>models</folder>
+        <folder>tables</folder>
+        <folder>views</folder>
+    </files>
+
+    <languages folder="administrator/language/en-GB">
+        <language tag="en-GB">en-GB.com_layar.menu.ini</language>
+        <language tag="en-GB">en-GB.com_layar.ini</language>
+    </languages>
+
+    </administration>
+
+    <params>
+
+    </params>
+
+</install>

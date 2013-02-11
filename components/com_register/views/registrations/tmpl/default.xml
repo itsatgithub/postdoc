@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="Registrations Table Default Layout">
+		<message>
+			<![CDATA[REGISTRATIONS TABLE DEFAULT LAYOUT DESCRIPTION]]>
+		</message>
+	</layout>
+	<state>
+		<name>Registrations table layout</name>
+		<description>Registrations table layout description</description>
+		<url>
+
+		</url>
+		<params>
+			<param type="sql" name="id_congress" label="Select Congress"
+				description="Congress to display"
+				query="SELECT id as value, short_name AS id_congress FROM #__reg_congresses">
+			</param>
+			<param name="display_title" type="radio" default="1"
+				label="Display Title" description="Display Title">
+				<option value="0">No</option>
+				<option value="1">Yes</option>
+			</param>
+			<param name="display_paid" type="radio" default="1" label="Display Paid"
+				description="Display Paid">
+				<option value="0">No</option>
+				<option value="1">Yes</option>
+			</param>
+			<param name="display_registration_type" type="radio" default="1"
+				label="Display Registration Type" description="Display Registration Type">
+				<option value="0">No</option>
+				<option value="1">Yes</option>
+			</param>
+			<param name="display_pdf_button" type="radio" default="1"
+				label="Display pdf button (invoices)" description="Display pdf button">
+				<option value="0">No</option>
+				<option value="1">Yes</option>
+			</param>
+			<param name="display_registration_date" type="radio" default="1"
+				label="Display Registration Date" description="Display Registration Date">
+				<option value="0">No</option>
+				<option value="1">Yes</option>
+			</param>
+		</params>
+		<advanced>
+
+		</advanced>
+	</state>
+</metadata>

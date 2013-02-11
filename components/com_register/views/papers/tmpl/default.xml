@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="Papers Table Default Layout">
+		<message>
+			<![CDATA[PAPERS TABLE DEFAULT LAYOUT DESCRIPTION]]>
+		</message>
+	</layout>
+	<state>
+		<name>Papers table layout</name>
+		<description>Papers table layout description</description>
+		<url>
+
+		</url>
+		<params>
+			<param type="sql" name="id_congress" label="Select Congress"
+				description="Congress to display"
+				query="SELECT id as value, short_name AS id_congress FROM #__reg_congresses">
+			</param>
+			<param name="display_sessions" type="radio" default="1"
+				label="Display / Use Sessions" description="Display / Use Sessions">
+				<option value="0">No</option>
+				<option value="1">Yes</option>
+			</param>
+			<param name="display_paper_type" type="radio" default="1"
+				label="Display / Use Paper Type" description="Display / Use Paper Type">
+				<option value="0">No</option>
+				<option value="1">Yes</option>
+			</param>
+			<param name="display_filename" type="radio" default="1"
+				label="Display Filename" description="Display Filename">
+				<option value="0">No</option>
+				<option value="1">Yes</option>
+			</param>
+		</params>
+		<advanced>
+
+		</advanced>
+	</state>
+</metadata>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="2.5.0" method="upgrade">
+    <name>Register</name>
+    <author></author>
+    <creationDate>07/07/2009</creationDate>
+    <license>GNU/GPL</license>
+    <version>2.5</version>
+    <description>Manages the registration in congresses.</description>
+    
+    <!-- user part -->
+    <files folder="site">
+        <folder>models</folder>
+        <folder>views</folder>
+        <filename>controller.php</filename>
+        <filename>index.html</filename>
+        <filename>register.php</filename>        
+    </files>
+    <languages folder="site">
+        <language tag="en-GB">language/en-GB.com_register.ini</language>
+    </languages>
+
+    <!-- administration part -->
+    <administration>
+	    <menu task="default" img="js/ThemeOffice/component.png">Congress Manager</menu>
+	    <submenu>
+	        <menu link="option=com_register">Configure</menu>
+	    </submenu>
+	    <files folder="admin">
+	        <folder>helpers</folder>
+	        <folder>models</folder>
+	        <folder>tables</folder>
+	        <folder>views</folder>
+	        <filename>config.xml</filename>
+	        <filename>controller.php</filename>
+	        <filename>index.html</filename>
+	        <filename>install.register.php</filename>
+	        <filename>install.register.sql</filename>
+	        <filename>register.php</filename>
+	        <filename>uninstall.register.php</filename>
+	    </files>
+	    <languages folder="admin">
+	        <language tag="en-GB">language/en-GB.com_register.menu.ini</language>
+	        <language tag="en-GB">language/en-GB.com_register.ini</language>
+	    </languages>
+    </administration>
+    <!-- installation part -->
+</extension>

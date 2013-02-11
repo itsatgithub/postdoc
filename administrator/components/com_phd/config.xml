@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<params>
+		<param name="phdConfig_AdminName" type="text" default=""
+			label="Administrator name" description="Name of the site's administrator"
+			size="50" />
+		<param name="phdConfig_AdminEmail" type="text" default=""
+			label="Administrator email" description="Email of the site's administrator"
+			size="50" />
+		<param name="phdConfig_LiveSite" type="text" default=""
+			label="Live site URL" description="Live site URL" size="60" />
+		<param name="phdConfig_ClosingDateTime" type="text" default=""
+			label="Closing date time" description="Closing date time" size="40" />
+		<param name="phdConfig_LimitAge" type="text" default="30" label="Limit age"
+			description="Limit age" size="2" />
+		<param name="phdConfig_DocsPath" type="text" default="/docs_phd/"
+			label="Documents path" description="Documents path" />
+		<param name="phdConfig_MaxNumberOfFiles" type="text" default="5"
+			label="Max number of files" description="Max number of files" size="2" />
+		<param name="phdConfig_SendBCC" type="radio" default="1"
+			label="Send copy to the administrator"
+			description="Send a copy in BCC to the administrator for the emails sent to the referees">
+			<option value="1">Yes</option>
+			<option value="0">No</option>
+		</param>
+		<param name="@spacer" type="spacer" default="" label=""
+			description="" />
+		<param name="phdConfig_Application" type="radio" default="1"
+			label="Application" description="Application">
+			<option value="1">PhD</option>
+			<option value="2">PostDocs</option>
+		</param>
+		<param name="phdConfig_FirstChoice" type="radio" default="1"
+			label="To show the applicants take into account..." description="First choice">
+			<option value="1">only the first choice</option>
+			<option value="2">all the choices</option>
+		</param>
+		
+		
+		<param name="@spacer" type="spacer" default="" label=""
+			description="" />
+		<param name="phdConfig_InvalidEmailProviders" type="text" default="gmail, yahoo"
+			label="Invalid email providers (comma separated)" description="Invalid email providers (comma separated)" size="60" />			
+		<param name="phdConfig_EmailRefereeSubject" type="text" default=""
+			label="Subject for email to referee" description="Subject for email to referee"
+			size="50" />
+		<param name="phdConfig_EmailRefereeBody" type="textarea"
+			default="" label="Email to referee" rows="3" cols="50" description="Email to referee" />
+		
+		
+		<param name="@spacer" type="spacer" default="" label=""
+			description="" />
+		<param name="phdConfig_EmailApplicantSubject1" type="text" default="News from IRB Barcelona PhD programme"
+			label="Subject for email to applicant with status Editing" description="Subject for email to applicant with status Editing"
+			size="50" />
+		<param name="phdConfig_EmailApplicantBody1" type="textarea"
+			default="Dear #name#,&lt;br /&gt;This email is to inform you that IRB Barcelona has not yet received one of the two letters	of recommendation requested for application to IRB Barcelona PhD fellowships. We remind you that these letters must be sent directly to us by your referees (either by e-mail to phd@irbbarcelona.org, by airmail or by fax to our contact address) and that the deadline for receipt is 25 January 2009.&lt;br /&gt;Best regards,&lt;br /&gt;IRB Barcelona PhD Programme&lt;br /&gt;This is an automatically generated message. Please do not answer." 
+			label="Email to applicant with status Editing" rows="3" cols="50" description="Email to applicant with status Editing" />
+		
+		
+		<param name="@spacer" type="spacer" default="" label=""
+			description="" />
+		<param name="phdConfig_EmailApplicantSubject2" type="text" default="News from IRB Barcelona PhD programme"
+			label="Subject for email to applicant with status Submitted" description="Subject for email to applicant with status Submitted"
+			size="50" />
+		<param name="phdConfig_EmailApplicantBody2" type="textarea"
+			default="Dear #name#,&lt;br /&gt;Thank you for your interest in IRB Barcelona and for submitting your application for a PhD position at our institute.&lt;br /&gt;This e-mail is to confirm that your application has been submitted correctly. You will hear back from us once the call closes and the first part of the evaluation process has been completed, around February 2009.&lt;br /&gt;Best regards,&lt;br /&gt;IRB Barcelona PhD Programme&lt;br /&gt;This is an automatically generated message. Please do not answer."
+			label="Email to applicant with status Submitted" rows="3" cols="50" description="Email to applicant with status Submitted" />
+		
+		
+		<param name="@spacer" type="spacer" default="" label=""
+			description="" />
+		<param name="phdConfig_EmailApplicantSubject3" type="text" default="News from IRB Barcelona PhD programme"
+			label="Subject for email to applicant with status Not Invited" description="Subject for email to applicant with status Not Invited"
+			size="50" />
+		<param name="phdConfig_EmailApplicantBody3" type="textarea"
+			default="Dear #name#,&lt;br /&gt;Thank you, once again, for applying for a Ph.D. grant at IRB Barcelona. The call closed the 25 January 2009 and the first part of the selection process has now been completed.&lt;br /&gt;After careful evaluation of your considerable merits, I am sorry to inform you that on this occasion you have not been short-listed.&lt;br /&gt;I thank you once again for your interest in IRB Barcelona and wish you every success in the future.&lt;br /&gt;Best regards,&lt;br /&gt;IRB Barcelona PhD Programme&lt;br /&gt;This is an automatically generated message. Please do not answer."
+			label="Email to applicant with status Not Invited" rows="3" cols="50" description="Email to applicant with status Not Invited" />
+		
+		
+		<param name="@spacer" type="spacer" default="" label=""
+			description="" />
+		<param name="phdConfig_EmailApplicantSubject4" type="text" default="News from IRB Barcelona PhD programme"
+			label="Subject for email to applicant with status Invited" description="Subject for email to applicant with status Invited"
+			size="50" />
+		<param name="phdConfig_EmailApplicantBody4" type="textarea"
+			default="Dear #name#,&lt;br /&gt;Thank you once again for your recent application for a PhD grant at IRB Barcelona. After careful evaluation of your merits, I am pleased to inform you that you have been short-listed as a potential candidate for one of the grants currently on offer. You will soon receive an official letter with the invitation to visit our Institute on 30 and 31 of March 2009 for interviews.&lt;br /&gt;Best regards,&lt;br /&gt;IRB Barcelona PhD Programme&lt;br /&gt;This is an automatically generated message. Please do not answer."
+			label="Email to applicant with status Invited" rows="3" cols="50" description="Email to applicant with status Invited" />
+
+
+		<param name="@spacer" type="spacer" default="" label=""
+			description="" />
+		<param name="phdConfig_EmailApplicantSubject5" type="text" default="News from IRB Barcelona PhD programme"
+			label="Subject for email to applicant with status Not accepted" description="Subject for email to applicant with status Not accepted"
+			size="50" />
+		<param name="phdConfig_EmailApplicantBody5" type="textarea"
+			default="Dear #name#,&lt;br /&gt;After completion of the selection process for PhD fellowships offered by the Institute for Research in Biomedicine (IRB Barcelona), I regret to inform you than on this occasion your application has not been successful. Given the considerable competition for these fellowships and exceptionally high number and quality of applicants, I congratulate you on being short-listed.&lt;br /&gt;I thank you once again for your interest in  IRB Barcelona and wish you every success in the future.&lt;br /&gt;Yours sincerely,&lt;br /&gt;IRB Barcelona PhD Programme&lt;br /&gt;This is an automatically generated message. Please do not answer."
+			label="Email to applicant with status Not accepted" rows="3" cols="50" description="Email to applicant with status Not accepted" />
+
+
+		<param name="@spacer" type="spacer" default="" label=""
+			description="" />
+		<param name="phdConfig_EmailApplicantSubject6" type="text" default="News from IRB Barcelona PhD programme"
+			label="Subject for email to applicant with status Accepted" description="Subject for email to applicant with status Accepted"
+			size="50" />
+		<param name="phdConfig_EmailApplicantBody6" type="textarea"
+			default="Dear #name#,&lt;br /&gt;After completion of the selection process, it is our pleasure to offer you a PhD fellowship at IRB Barcelona. We congratulate you on this achievement. As you know there was considerable competition for these fellowships and the number and quality of applicants were exceptionally high.&lt;br /&gt;We will officially contact you in the near future with more details of our offer.&lt;br /&gt;Best regards,&lt;br /&gt;IRB Barcelona PhD Programme&lt;br /&gt;This is an automatically generated message. Please do not answer."
+			label="Email to applicant with status Accepted" rows="3" cols="50" description="Email to applicant with status Accepted" />
+
+
+		<param name="@spacer" type="spacer" default="" label=""
+			description="" />
+		<param name="phdConfig_EmailApplicantSubject7" type="text" default="News from IRB Barcelona PhD programme"
+			label="Subject for email to applicant with status Discarded" description="Subject for email to applicant with status Discarded"
+			size="50" />
+		<param name="phdConfig_EmailApplicantBody7" type="textarea"
+			default="Dear #name#,&lt;br /&gt;Thank you for your interest in IRB Barcelona and for submitting your application for a PhD position at our institute.&lt;br /&gt;We regret to inform you that we have received no recommendations letters. You have therefore been excluded from the selection process.&lt;br /&gt;Best regards,&lt;br /&gt;IRB Barcelona PhD Programme&lt;br /&gt;This is an automatically generated message. Please do not answer."
+			label="Email to applicant with status Discarded" rows="3" cols="50" description="Email to applicant with status Discarded" />
+	</params>
+</config>
