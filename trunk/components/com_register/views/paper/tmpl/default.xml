@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="Paper Default Layout">
+		<message>
+			<![CDATA[PAPER DEFAULT LAYOUT DESCRIPTION]]>
+		</message>
+	</layout>
+	<state>
+		<name>Paper layout</name>
+		<description>Paper layout description</description>
+		<params>
+			<param type="sql" name="id_congress" label="Select Congress"
+				description="Congress to display"
+				query="SELECT id as value, short_name AS id_congress FROM #__reg_congresses">
+			</param>
+			<param name="paper_title" type="radio" default="1" label="Paper Title"
+				description="Manage Paper Title">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="paper_file" type="radio" default="1" label="File"
+				description="Manage Paper File">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="paper_abstract" type="radio" default="1" label="Abstract"
+				description="Manage Abstract">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="paper_institution" type="radio" default="1"
+				label="Paper Institution" description="Manage Paper Institution">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="paper_mail" type="radio" default="1" label="Paper Mail"
+				description="Manage Paper Mail">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="paper_typeofpresentation" type="radio" default="1"
+				label="Paper Type of Presentation" description="Manage Type of Presentation">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="paper_session" type="radio" default="1"
+				label="Paper Session" description="Manage Paper Session">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="paper_rest_authors_label" type="text" default="REST OF AUTHORS"
+				label="Paper Rest of Authors" description="Manage Paper Rest of Authors" />
+		</params>
+		<advanced>
+			<param name="check_usedemail" type="radio" default="0"
+				label="Check Used Email"
+				description="Check if E-mail address have been already used for registration">
+				<option value="0">No</option>
+				<option value="1">Yes</option>
+			</param>
+		</advanced>
+	</state>
+</metadata>

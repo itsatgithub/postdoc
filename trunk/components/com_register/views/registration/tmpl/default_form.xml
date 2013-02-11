@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="REGISTRATION FORM FORM">
+		<message>
+			<![CDATA[REGISTRATION FORM LAYOUT DESC]]>
+		</message>
+	</layout>
+	<state>
+		<name>REGISTRATION FORM LAYOUT FORM</name>
+		<description>REGISTRATION FORM LAYOUT DESC FORM</description>
+		<params>
+			<param name="image" type="imagelist" directory="/images/stories"
+				hide_default="1" default="" label="Image" description="PARAMIMAGE" />
+			<param name="image_align" type="radio" default="right" label="Image Align"
+				description="Alignment of the image">
+				<option value="left">Left</option>
+				<option value="right">Right</option>
+			</param>
+			<param name="show_feed_link" type="radio" default="1"
+				label="Show a feed link" description="PARAMSHOWFEEDLINK">
+				<option value="0">No</option>
+				<option value="1">Yes</option>
+			</param>
+			<param name="academic_title" type="radio" default="1"
+				label="Academic Title" description="Manage Academic Title">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="firstname" type="radio" default="1" label="firstname"
+				description="Manage Firstname">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="lastname" type="radio" default="1" label="lastname"
+				description="Manage Lastname">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="gender" type="radio" default="1" label="Gender"
+				description="Manage Gender">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="institution" type="radio" default="1" label="institution"
+				description="Manage Institution/Centre">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="registration_type" type="radio" default="1"
+				label="registration_type" description="Manage Registration Type">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="membership" type="radio" default="1" label="membership"
+				description="Manage Membership">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="address" type="radio" default="1" label="address"
+				description="Manage Address">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="city" type="radio" default="1" label="city"
+				description="Manage City">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="postal_code" type="radio" default="1" label="postal_code"
+				description="Manage Postal Code">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="country" type="radio" default="1" label="country"
+				description="Manage Country">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="email" type="radio" default="1" label="email"
+				description="Manage Email">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="daytime_phone" type="radio" default="1"
+				label="daytime_phone" description="Manage Phone">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="alternative_phone" type="radio" default="1"
+				label="alternative_phone" description="Manage Alternative Phone">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="presentation" type="radio" default="1" label="presentation"
+				description="Manage Presentation">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="cost" type="radio" default="1" label="cost"
+				description="Manage Cost">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="accounting" type="radio" default="1" label="accounting"
+				description="Manage Accounting">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="accounting_cif" type="radio" default="1"
+				label="accounting_cif" description="Manage Accounting (CIF)">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="payment_method" type="radio" default="1"
+				label="payment_method" description="Manage Payment Method">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+		</params>
+	</state>
+</metadata>

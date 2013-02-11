@@ -1,0 +1,9 @@
+<?php defined('_JEXEC') or die('Restricted access'); ?>
+
+<ul>
+<?php foreach ( $this->datos as $dato ) : ?>
+	<li>
+		<?php echo $dato;?>
+	</li>
+<?php endforeach; ?>
+</ul>

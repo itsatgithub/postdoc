@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <params>
+			<param name="layarConfig_LiveSite" type="text" default=""
+			label="Live site URL" description="Live site URL" size="60" />
+    </params>
+</config>

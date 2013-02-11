@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="Registration Default Layout">
+		<message>
+			<![CDATA[REGISTRATION DEFAULT LAYOUT DESCRIPTION]]>
+		</message>
+	</layout>
+	<state>
+		<name>Registration layout</name>
+		<description>Registration layout description</description>
+		<params>
+			<param type="sql" name="id_congress" label="Select Congress"
+				description="Congress to display"
+				query="SELECT id as value, short_name AS id_congress FROM #__reg_congresses">
+			</param>
+			<param name="academic_title" type="radio" default="1"
+				label="Academic Title" description="Manage Academic Title">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="firstname" type="radio" default="1" label="Firstname"
+				description="Manage Firstname">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="lastname" type="radio" default="1" label="Lastname"
+				description="Manage Lastname">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="gender" type="radio" default="1" label="Gender"
+				description="Manage Gender">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="institution" type="radio" default="1" label="Institution"
+				description="Manage Institution/Centre">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="registration_type" type="radio" default="1"
+				label="Registration Type" description="Manage Registration Type">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="member" type="radio" default="1" label="Membership"
+				description="Manage Membership">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="address" type="radio" default="1" label="Address"
+				description="Manage Address">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="city" type="radio" default="1" label="City"
+				description="Manage City">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="postal_code" type="radio" default="1" label="Postal Code"
+				description="Manage Postal Code">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="country" type="radio" default="1" label="Country"
+				description="Manage Country">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="email" type="radio" default="1" label="Email"
+				description="Manage Email">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="email2" type="radio" default="1" label="Email Confirmation"
+				description="Manage Email Confirmation. Both addresses have to be equal when validating">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="daytime_phone" type="radio" default="1" label="Phone"
+				description="Manage Daytime Phone">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="alternative_phone" type="radio" default="1"
+				label="Alternative Phone" description="Manage Alternative Phone">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="presentation" type="radio" default="1" label="Presentation"
+				description="Manage Presentation">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="cost" type="radio" default="1" label="Cost"
+				description="Manage Cost">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="accounting" type="radio" default="1" label="Accounting"
+				description="Manage Accounting (it will display institution, address, city and country)">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="accounting_cif" type="radio" default="1"
+				label="Accounting CIF"
+				description="Manage Accounting (CIF). Only has sense if previous option has been selected.">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="payment_method" type="radio" default="1"
+				label="Payment Method" description="Manage Payment Method">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="extrafield_1" type="radio" default="1" label="Extra Field 1"
+				description="Extra Field 1">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="extrafield_2" type="radio" default="1" label="Extra Field 2"
+				description="Extra Field 2">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="extrafield_3" type="radio" default="1" label="Extra Field 3"
+				description="Extra Field 3">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+			<param name="extrafield_bool_1" type="radio" default="1"
+				label="Extra Field Bool 1" description="Extra Field Bool 1">
+				<option value="0">Hide</option>
+				<option value="1">Show</option>
+				<option value="2">Show and validate</option>
+			</param>
+		</params>
+		<advanced>
+			<param name="check_usedemail" type="radio" default="0"
+				label="Check Used Email"
+				description="Check if E-mail address have been already used for a previous registration">
+				<option value="0">No</option>
+				<option value="1">Yes</option>
+			</param>
+			<param name="send_latex_file" type="radio" default="0"
+				label="Send Latex File"
+				description="Send Latex File option. The parameters have to be configured on congress configuration.">
+				<option value="0">No</option>
+				<option value="1">Yes</option>
+			</param>
+		</advanced>
+	</state>
+</metadata>

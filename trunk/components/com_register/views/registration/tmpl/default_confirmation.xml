@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="REGISTRATION FORM">
+		<message>
+			<![CDATA[REGISTRATION FORM LAYOUT DESC]]>
+		</message>
+	</layout>
+	<state>
+		<name>Confirmation form layout</name>
+		<description>Confirmation form layout description</description>
+	</state>
+</metadata>

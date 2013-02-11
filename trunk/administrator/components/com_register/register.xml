@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="component" version="1.5.0" method="upgrade">
+	<name>register</name>
+	<author></author>
+	<creationDate>07/07/2009</creationDate>
+	<license>GNU/GPL</license>
+	<version>1.0</version>
+	<description>Manages the registration in congresses.</description>
+
+	<!-- installation part -->
+	<install>
+		<sql>
+			<file driver="mysql" charset="utf8">install.register.sql</file>
+		</sql>
+	</install>
+
+
+	<!-- user part -->
+	<files folder="components/com_register">
+		<filename>controller.php</filename>
+		<filename>index.html</filename>
+		<filename>router.php</filename>
+		<filename>register.php</filename>
+		<folder>models</folder>
+		<folder>views</folder>
+		<folder>assets</folder>
+		<folder>includes</folder>
+		<folder>invoices</folder>
+	</files>
+
+	<languages folder="language/en-GB">
+		<language tag="en-GB">en-GB.com_register.ini</language>
+	</languages>
+
+	<!-- administration part -->
+	<administration>
+
+		<menu task="default" img="js/ThemeOffice/component.png">Congress Manager</menu>
+		<submenu>
+			<menu link="option=com_register">Configure</menu>
+		</submenu>
+
+		<files>
+			<filename>register.xml</filename>
+		</files>
+		<files folder="administrator/components/com_register">
+			<filename>config.xml</filename>
+			<filename>controller.php</filename>
+			<filename>index.html</filename>
+			<filename>install.register.sql</filename>
+			<filename>install.register.php</filename>
+			<filename>register.php</filename>
+			<filename>uninstall.register.php</filename>
+			<folder>helpers</folder>
+			<folder>models</folder>
+			<folder>tables</folder>
+			<folder>views</folder>
+		</files>
+
+		<languages folder="administrator/language/en-GB">
+			<language tag="en-GB">en-GB.com_register.menu.ini</language>
+			<language tag="en-GB">en-GB.com_register.ini</language>
+		</languages>
+
+	</administration>
+
+	<params>
+
+	</params>
+
+</install>

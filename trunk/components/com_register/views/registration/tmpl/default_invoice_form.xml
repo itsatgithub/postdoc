@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="INVOICE FORM">
+		<message>
+			<![CDATA[INVOICE FORM LAYOUT DESC]]>
+		</message>
+	</layout>
+	<state>
+		<name>INVOICE FORM LAYOUT</name>
+		<description>INVOICE FORM LAYOUT DESC</description>
+		<params>
+			<param type="sql" name="id_congress" label="Select Congress"
+				description="Congress to display"
+				query="SELECT id as value, short_name AS id_congress FROM #__reg_congresses">
+			</param>
+			<param name="automatic_data" type="radio" default="1"
+				label="Insert data automatically" description="Manage Data Insertion">
+				<option value="0">Yes</option>
+				<option value="1">No</option>
+			</param>
+		</params>
+
+	</state>
+</metadata>

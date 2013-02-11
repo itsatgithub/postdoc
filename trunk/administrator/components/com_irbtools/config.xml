@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <params>
+		<param name="irbtoolsConfig_InstallUrl" type="text" default="https://joomlavui.svn.sourceforge.net/svnroot/joomlavui/trunk/" label="Install Url" description="Install Url" size="255" />
+		<param name="@spacer" type="spacer" default="" label="Google" description="Google" />
+		<param name="irbtoolsConfig_GoogleDomain" type="text" default="" label="Google domain" description="Google domain" size="50" />
+		<param name="irbtoolsConfig_GoogleUser" type="text" default="" label="Google user name" description="Google user name" size="50" />
+		<param name="irbtoolsConfig_GooglePass" type="text" default="" label="Google password" description="Google password" size="50" />
+		<param name="@spacer" type="spacer" default="" label="Email" description="Email" />
+		<param name="irbtoolsConfig_Lista1" type="text" default="" label="List to subscribe" description="Google list" size="50" />
+		<param name="irbtoolsConfig_Lista2" type="text" default="" label="List to subscribe" description="Google list" size="50" />
+		<param name="irbtoolsConfig_Lista3" type="text" default="" label="List to subscribe" description="Google list" size="50" />
+		<param name="irbtoolsConfig_Lista4" type="text" default="" label="List to subscribe" description="Google list" size="50" />
+		<param name="irbtoolsConfig_Lista5" type="text" default="" label="List to subscribe" description="Google list" size="50" />
+		<param name="irbtoolsConfig_Lista6" type="text" default="" label="List to subscribe" description="Google list" size="50" />
+		<param name="irbtoolsConfig_Lista7" type="text" default="" label="List to subscribe" description="Google list" size="50" />
+		<param name="irbtoolsConfig_Lista8" type="text" default="" label="List to subscribe" description="Google list" size="50" />
+		<param name="irbtoolsConfig_Lista9" type="text" default="" label="List to subscribe" description="Google list" size="50" />
+		<param name="@spacer" type="spacer" default="" label="Email" description="Email" />
+		<param name="irbtoolsConfig_EmailSubject" type="text" default="" label="Email subject" description="Email subject" size="50" />
+		<param name="irbtoolsConfig_EmailBody" type="textarea" default="" label="Email body" rows="3" cols="50" description="Email body" />
+		<param name="@spacer" type="spacer" default="" label="Private files" description="Private files" />
+		<param name="irbtoolsConfig_Panic" type="radio" default="0"
+			label="Panic! (do not show files)" description="Panic! (do not show files)">
+			<option value="0">No</option>
+			<option value="1">Yes</option>
+		</param>
+		<param name="irbtoolsConfig_PrivateFilesFolder" type="text" default="" label="Private files folder" description="Private files folder" size="255" />
+    </params>
+</config>

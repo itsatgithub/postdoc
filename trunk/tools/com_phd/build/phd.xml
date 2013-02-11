@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="component" version="1.5.0" method="upgrade">
+	<name>PhD</name>
+	<author>GPL@vui</author>
+	<creationDate>2012-04-19</creationDate>
+	<license>GNU/GPL</license>
+	<version>2.8</version>
+	<description>Postdoc Programme aplication. Nationality and Gender on the excel file.</description>
+
+	<!-- installation part -->
+	<install>
+		<sql>
+			<file>install.phd.sql</file>
+		</sql>
+	</install>
+	<uninstall>
+		<sql>
+			<file>uninstall.phd.sql</file>
+		</sql>
+	</uninstall>
+	<!-- user part -->
+	<files folder="components/com_phd">
+		<folder>assets</folder>
+		<folder>controllers</folder>
+		<folder>helpers</folder>
+		<folder>models</folder>
+		<folder>views</folder>
+		<filename>index.html</filename>
+		<filename>router.php</filename>
+		<filename>phd.php</filename>
+	</files>
+	<languages folder="language/en-GB">
+		<language tag="en-GB">en-GB.com_phd.ini</language>
+	</languages>
+
+	<!-- administration part -->
+	<administration>
+		<menu task="default" img="js/ThemeOffice/component.png">PhD</menu>
+		<submenu>
+			<menu link="option=com_phd&amp;view=programmes">Programmes</menu>
+			<menu link="option=com_phd&amp;view=applicants&amp;format=raw">Excel file</menu>
+			<menu link="option=com_phd&amp;controller=version&amp;task=display">Version</menu>
+		</submenu>
+		<files folder="administrator/components/com_phd">
+			<folder>controllers</folder>
+			<folder>helpers</folder>
+			<folder>models</folder>
+			<folder>tables</folder>
+			<folder>views</folder>
+			<filename>config.xml</filename>
+			<filename>index.html</filename>
+			<filename>install.phd.sql</filename>
+			<filename>phd.php</filename>
+			<filename>phd.xml</filename>
+			<filename>uninstall.phd.sql</filename>
+		</files>
+		<languages folder="administrator/language/en-GB">
+			<language tag="en-GB">en-GB.com_phd.ini</language>
+		</languages>
+	</administration>
+
+	<params>
+	</params>
+</install>
