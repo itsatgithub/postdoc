@@ -63,7 +63,7 @@ class JHTMLPhdInstallHelper
       {
           //Código extraido de JFusion
           ob_start();
-          $url = 'https://svn.code.sf.net/p/postdoc/code/trunk/administrator/components/com_phd/phd.xml';
+          $url = 'http://postdoc.googlecode.com/svn/trunk/administrator/components/com_phd/phd.xml';
           
           if (function_exists('curl_init')) {
               //curl is the preferred function
