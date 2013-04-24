@@ -22,7 +22,7 @@ JToolBarHelper::title( JText::_( 'Manage software version' ), 'generic.png' );
 </table>
 <br>
 <form enctype="multipart/form-data" action="index.php" method="post" name="adminForm2">
-	<input type="hidden" name="install_url" value="https://svn.code.sf.net/p/postdoc/code/trunk/tools/com_phd/zips/com_phd.zip" />
+	<input type="hidden" name="install_url" value="http://postdoc.googlecode.com/svn/trunk/tools/com_phd/zips/com_phd.zip" />
 	<input type="hidden" name="type" value="" />
 	<input type="hidden" name="installtype" value="url" />
 	<input type="hidden" name="task" value="doInstall" />
