@@ -84,6 +84,7 @@ class PhdViewApplicant extends JView
 		$lists['countries'] = JHTML::_('select.genericlist', $countrieslist, 'country_id', $javascript, 'value', 'text', $applicant->country_id );
 
 		// build list of committees - panel a
+		$committeeslist = '';
 		$query = 'SELECT u.user_username AS value, ju.name AS text'
 		. ' FROM `#__phd_users` AS u'
 		. ' LEFT JOIN `#__users` AS ju ON ju.username = u.user_username'
@@ -97,6 +98,7 @@ class PhdViewApplicant extends JView
 		$lists['committee_username0'] = JHTML::_('select.genericlist', $committeeslist, 'committee_username0', '', 'value', 'text', $applicant->committee_list[0]->user_committee_username );	
 		
 		// build list of committees - panel b
+		$committeeslist = '';
 		$query = 'SELECT u.user_username AS value, ju.name AS text'
 		. ' FROM `#__phd_users` AS u'
 		. ' LEFT JOIN `#__users` AS ju ON ju.username = u.user_username'
@@ -110,6 +112,7 @@ class PhdViewApplicant extends JView
 		$lists['committee_username1'] = JHTML::_('select.genericlist', $committeeslist, 'committee_username1', '', 'value', 'text', $applicant->committee_list[1]->user_committee_username );
 		
 		// build list of committees - panel c
+		$committeeslist = '';
 		$query = 'SELECT u.user_username AS value, ju.name AS text'
 		. ' FROM `#__phd_users` AS u'
 		. ' LEFT JOIN `#__users` AS ju ON ju.username = u.user_username'
