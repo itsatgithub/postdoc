@@ -2,10 +2,10 @@
 <install type="component" version="1.5.0" method="upgrade">
 	<name>PhD</name>
 	<author>GPL@vui</author>
-	<creationDate>2012-04-19</creationDate>
+	<creationDate>2012-05-24</creationDate>
 	<license>GNU/GPL</license>
-	<version>2.8</version>
-	<description>Postdoc Programme aplication. Nationality and Gender on the excel file.</description>
+	<version>2.9</version>
+	<description>Postdoc Programme aplication. Solved bug on the Committee panels.</description>
 
 	<!-- installation part -->
 	<install>

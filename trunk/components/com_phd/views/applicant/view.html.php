@@ -88,7 +88,7 @@ class PhdViewApplicant extends JView
 		. ' FROM `#__phd_users` AS u'
 		. ' LEFT JOIN `#__users` AS ju ON ju.username = u.user_username'
 		. ' WHERE u.role_id = 3'
-		. ' AND u.panel = a'
+		. ' AND u.panel = \'a\''
 		. ' ORDER BY ju.name'
 		;
 		$db->setQuery($query);
@@ -101,7 +101,7 @@ class PhdViewApplicant extends JView
 		. ' FROM `#__phd_users` AS u'
 		. ' LEFT JOIN `#__users` AS ju ON ju.username = u.user_username'
 		. ' WHERE u.role_id = 3'
-		. ' AND u.panel = b'
+		. ' AND u.panel = \'b\''
 		. ' ORDER BY ju.name'
 		;
 		$db->setQuery($query);
@@ -114,7 +114,7 @@ class PhdViewApplicant extends JView
 		. ' FROM `#__phd_users` AS u'
 		. ' LEFT JOIN `#__users` AS ju ON ju.username = u.user_username'
 		. ' WHERE u.role_id = 3'
-		. ' AND u.panel = c'
+		. ' AND u.panel = \'c\''
 		. ' ORDER BY ju.name'
 		;
 		$db->setQuery($query);
