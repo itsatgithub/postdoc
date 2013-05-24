@@ -83,18 +83,43 @@ class PhdViewApplicant extends JView
 		$countrieslist = array_merge( $countrieslist, $db->loadObjectList() );
 		$lists['countries'] = JHTML::_('select.genericlist', $countrieslist, 'country_id', $javascript, 'value', 'text', $applicant->country_id );
 
-		// build list of committees
+		// build list of committees - panel a
 		$query = 'SELECT u.user_username AS value, ju.name AS text'
 		. ' FROM `#__phd_users` AS u'
 		. ' LEFT JOIN `#__users` AS ju ON ju.username = u.user_username'
 		. ' WHERE u.role_id = 3'
+		. ' AND u.panel = a'
 		. ' ORDER BY ju.name'
 		;
 		$db->setQuery($query);
 		$committeeslist[] = JHTML::_('select.option',  '', JText::_( '- Select Committee -' ), 'value', 'text');
 		$committeeslist = array_merge( $committeeslist, $db->loadObjectList() );
-		$lists['committee_username0'] = JHTML::_('select.genericlist', $committeeslist, 'committee_username0', '', 'value', 'text', $applicant->committee_list[0]->user_committee_username );
+		$lists['committee_username0'] = JHTML::_('select.genericlist', $committeeslist, 'committee_username0', '', 'value', 'text', $applicant->committee_list[0]->user_committee_username );	
+		
+		// build list of committees - panel b
+		$query = 'SELECT u.user_username AS value, ju.name AS text'
+		. ' FROM `#__phd_users` AS u'
+		. ' LEFT JOIN `#__users` AS ju ON ju.username = u.user_username'
+		. ' WHERE u.role_id = 3'
+		. ' AND u.panel = b'
+		. ' ORDER BY ju.name'
+		;
+		$db->setQuery($query);
+		$committeeslist[] = JHTML::_('select.option',  '', JText::_( '- Select Committee -' ), 'value', 'text');
+		$committeeslist = array_merge( $committeeslist, $db->loadObjectList() );
 		$lists['committee_username1'] = JHTML::_('select.genericlist', $committeeslist, 'committee_username1', '', 'value', 'text', $applicant->committee_list[1]->user_committee_username );
+		
+		// build list of committees - panel c
+		$query = 'SELECT u.user_username AS value, ju.name AS text'
+		. ' FROM `#__phd_users` AS u'
+		. ' LEFT JOIN `#__users` AS ju ON ju.username = u.user_username'
+		. ' WHERE u.role_id = 3'
+		. ' AND u.panel = c'
+		. ' ORDER BY ju.name'
+		;
+		$db->setQuery($query);
+		$committeeslist[] = JHTML::_('select.option',  '', JText::_( '- Select Committee -' ), 'value', 'text');
+		$committeeslist = array_merge( $committeeslist, $db->loadObjectList() );
 		$lists['committee_username2'] = JHTML::_('select.genericlist', $committeeslist, 'committee_username2', '', 'value', 'text', $applicant->committee_list[2]->user_committee_username );
 		
 		// build list of birth countries
