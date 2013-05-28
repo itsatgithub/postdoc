@@ -76,10 +76,13 @@ class PhdViewApplicants extends JView
 			$worksheet->write(0, 7, JText::_( 'Where did you learn about us?' ));
 			$worksheet->write(0, 8, JText::_( 'Recommendation letters' ));
 			$worksheet->write(0, 9, JText::_( 'Programmes of choice' ));
-
+			$worksheet->write(0, 10, JText::_( 'Submit date' ));
+				
 			$i = 2; // line index
 			foreach( $rows as $row )
 			{
+				$submit_date =& JFactory::getDate($row->submit_date);
+				
 				// reference letters status
 				$query2 = "SELECT filename"
 				. " FROM #__phd_referees"
@@ -122,6 +125,7 @@ class PhdViewApplicants extends JView
 				$worksheet->write( $i, 7, $row->wheredidu );
 				$worksheet->write( $i, 8, $str_files );
 				$worksheet->write( $i, 9, $str_pro );
+				$worksheet->write( $i, 10, $submit_date->toFormat('%d/%m/%Y') );
 				
 				$i++;				
 			}
