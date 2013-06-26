@@ -2,10 +2,10 @@
 <install type="component" version="1.5.0" method="upgrade">
 	<name>PhD</name>
 	<author>GPL@vui</author>
-	<creationDate>2012-05-28</creationDate>
+	<creationDate>2013-06-26</creationDate>
 	<license>GNU/GPL</license>
-	<version>2.10</version>
-	<description>Postdoc Programme aplication. Added submit_date on the excel report.</description>
+	<version>2.11</version>
+	<description>Postdoc Programme aplication. Se añaden todos los miembros de comité en todos los desplegables de additional info.</description>
 
 	<!-- installation part -->
 	<install>
