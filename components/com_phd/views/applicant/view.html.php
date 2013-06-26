@@ -84,12 +84,14 @@ class PhdViewApplicant extends JView
 		$lists['countries'] = JHTML::_('select.genericlist', $countrieslist, 'country_id', $javascript, 'value', 'text', $applicant->country_id );
 
 		// build list of committees - panel a
+		// Roberto 2013-06-26 Se añaden todos los miembros en todos los paneles
 		$committeeslist = '';
 		$query = 'SELECT u.user_username AS value, ju.name AS text'
 		. ' FROM `#__phd_users` AS u'
 		. ' LEFT JOIN `#__users` AS ju ON ju.username = u.user_username'
 		. ' WHERE u.role_id = 3'
-		. ' AND u.panel = \'a\''
+		//. ' AND u.panel = \'a\''
+		. ' AND (u.panel = \'a\' OR  u.panel = \'b\' OR u.panel = \'c\')'
 		. ' ORDER BY ju.name'
 		;
 		$db->setQuery($query);
@@ -103,7 +105,8 @@ class PhdViewApplicant extends JView
 		. ' FROM `#__phd_users` AS u'
 		. ' LEFT JOIN `#__users` AS ju ON ju.username = u.user_username'
 		. ' WHERE u.role_id = 3'
-		. ' AND u.panel = \'b\''
+		//. ' AND u.panel = \'b\''
+		. ' AND (u.panel = \'a\' OR  u.panel = \'b\' OR u.panel = \'c\')'
 		. ' ORDER BY ju.name'
 		;
 		$db->setQuery($query);
@@ -117,7 +120,8 @@ class PhdViewApplicant extends JView
 		. ' FROM `#__phd_users` AS u'
 		. ' LEFT JOIN `#__users` AS ju ON ju.username = u.user_username'
 		. ' WHERE u.role_id = 3'
-		. ' AND u.panel = \'c\''
+		//. ' AND u.panel = \'c\''
+		. ' AND (u.panel = \'a\' OR  u.panel = \'b\' OR u.panel = \'c\')'
 		. ' ORDER BY ju.name'
 		;
 		$db->setQuery($query);
