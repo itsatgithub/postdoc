@@ -32,7 +32,7 @@ class JConfig {
 	var $ftp_root = '';
 	var $dbtype = 'mysql';
 	var $host = 'localhost';
-	var $user = 'joomlavui';
+	var $user = 'changeit';
 	var $db = 'postdoc';
 	var $dbprefix = 'jos_';
 	var $mailer = 'smtp';
@@ -42,14 +42,14 @@ class JConfig {
 	var $smtpauth = '1';
 	var $smtpsecure = 'tls';
 	var $smtpport = '465';
-	var $smtpuser = 'sender@irbbarcelona.org';
-	var $smtppass = '2452H371';
+	var $smtpuser = 'changeit@irbbarcelona.org';
+	var $smtppass = 'changeit';
 	var $smtphost = 'smtp.gmail.com';
 	var $MetaAuthor = '1';
 	var $MetaTitle = '1';
 	var $lifetime = '15';
 	var $session_handler = 'database';
-	var $password = 'joomlavui';
+	var $password = 'changeit';
 	var $sitename = 'Joomlavui';
 	var $MetaDesc = 'Joomla! - the dynamic portal engine and content management system';
 	var $MetaKeys = 'joomla, Joomla';
