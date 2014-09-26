@@ -341,6 +341,9 @@ class PhdModelApplicant extends JModel
 			$applicant->files = array();
 			$applicant->selections = array();
 
+			// 2014-09-23 Roberto Copiando el código de Albert Moreno
+			$applicant->directory = null;
+				
 			$this->_data = $applicant;
 
 			return (boolean) $this->_data;
@@ -565,7 +568,14 @@ class PhdModelApplicant extends JModel
 		$this->_db->setQuery( $query );
 		$file_details = $this->_db->loadObject();
 
-		$filepath = JPath::clean(JPATH_ROOT.DS.$phdConfig_DocsPath.DS.$file_details->applicant_id.DS.$file_details->filename);
+                $model =& JModel::getInstance( 'applicant', 'phdmodel' );
+                $model->setId( $file_details->applicant_id );
+                $applicant =& $model->getData();                 
+		
+        $filepath = JPath::clean($phdConfig_DocsPath.DS.$applicant->directory.DS.$file_details->filename);
+                
+        //$filepath = JPath::clean(JPATH_ROOT.DS.$phdConfig_DocsPath.DS.$file_details->applicant_id.DS.$file_details->filename);
+
 		if (!JFile::delete($filepath)) {
 			//echo JText::_('ERROR_DELETING_FILE');
 			return false;

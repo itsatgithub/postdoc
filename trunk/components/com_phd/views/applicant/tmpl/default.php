@@ -1477,13 +1477,17 @@ if (count($this->applicant->files) > 0):
 		<td><?php
         echo $file->doc_type;
 ?></td>
-		<td><a
+		<td><!--a
 			href="<?php
         echo JPath::clean(JURI::base(true) . $this->params->get('phdConfig_DocsPath') . DS . $this->applicant->id . DS . $file->filename);
 ?>"
 			style="color: blue;" target="_blank"><?php
         echo $file->filename;
-?></a>
+?></a-->
+
+<a href='<?php echo $_SERVER['PHP_SELF'];
+?>?option=com_phd&controller=applicant&task=download_file&person=<?php echo $this->applicant->id; ?>&file=<?php echo $file->filename; ?>' target="_blank"><?php echo $file->filename; ?></a>
+
 		</td>
 		<td><?php
         echo $file->description;
