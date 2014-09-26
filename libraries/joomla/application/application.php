@@ -576,10 +576,12 @@ class JApplication extends JObject
 				. ' WHERE username = \'' . $credentials['username'] . '\''
 				;
 				#echo $query;
+				/*
 				$db->setQuery($query);
 				if (!$db->query()) {
 					JError::raiseError( 500, $this->_db->stderr());
-				}						
+				}
+				*/
 				// Roberto 2014-03-04 Controlando los tres intentos de login fallido
 				return true;
 			}

@@ -100,13 +100,35 @@ function sendMail()
 	$user->set( 'email', $db->loadResult() );
 	*/
 
+	// Roberto 2014-09-26
 	// Get all users email and group except for senders
-	$query = 'SELECT email'
-	. ' FROM #__users'
-	. ' WHERE id != '.(int) $user->get('id')
-	. ( $gou !== 0 ? ' AND id IN (' . implode( ',', $to['users'] ) . ')' : '' )
-	;
-
+	//$query = 'SELECT email'
+	//. ' FROM #__users'
+	//. ' WHERE id != '.(int) $user->get('id')
+	//. ( $gou !== 0 ? ' AND id IN (' . implode( ',', $to['users'] ) . ')' : '' )
+	//;
+	// Roberto 2014-09-26
+	
+	// Roberto 2014-09-26
+	if ($status_id != 0):
+		$query = 'SELECT u.email'
+		. ' FROM #__users AS u'
+		. ' LEFT JOIN #__phd_applicants AS a'
+		. ' ON a.user_username=u.username'
+		. ' WHERE u.id != '.(int) $user->get('id')
+		. ( $gou !== 0 ? ' AND u.id IN (' . implode( ',', $to['users'] ) . ')' : '' )
+		. ' AND a.status_id='.$status_id
+		;
+	else:
+		// Get all users email and group except for senders
+		$query = 'SELECT email'
+		. ' FROM #__users'
+		. ' WHERE id != '.(int) $user->get('id')
+		. ( $gou !== 0 ? ' AND id IN (' . implode( ',', $to['users'] ) . ')' : '' )
+		;
+	endif;
+	// Roberto 2014-09-26
+	
 	$db->setQuery( $query );
 	$rows = $db->loadObjectList();
 

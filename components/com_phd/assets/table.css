@@ -59,11 +59,11 @@ tfoot td,tfoot th {
 	color                 : #666;
 }*/
 table a:link {
-	color: #FFFFFF;
+	color: #003366;
 }
 
 table a:visited {
-	color: #FFFFCC;
+	color: #003366;
 }
 
 table a:hover {

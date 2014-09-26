@@ -68,6 +68,15 @@ class IrbtoolsControllerGmail extends JController
     		$mainframe->redirect('index.php?option=com_irbtools&view=gmail', JText::_('USER_DIRECTORY_KO'));    		
     	}
     	
+    	// Roberto 2014-09-19
+    	// validate the username
+    	$pattern = "^[a-zA-Z]+\.[a-zA-Z.]$";
+    	if (!eregi($pattern,$email))
+    	{
+    		$mainframe->redirect('index.php?option=com_irbtools&view=gmail', JText::_('GMAIL_USERNAME_NOT_VALID'));
+    	}
+    	// Roberto 2014-09-19
+    	   
 		// modifico los atributos de IRB-Email, mail, IRB-PasswordInicial
 		$new = array();
 		$new["IRB-Email"] = "true";

@@ -50,6 +50,9 @@ class TablePersonaldata extends JTable {
 	var $status_id = null;
 	var $submit_date = null;
 
+	// 2014-09-23 Roberto Copiando el cambio de SIBEOS para phdlacaixa
+	var $directory = null;
+	
 	/**
 	 * Constructor
 	 *
