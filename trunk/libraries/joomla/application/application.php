@@ -520,6 +520,8 @@ class JApplication extends JObject
 	 */
 	function login($credentials, $options = array())
 	{
+		global $mainframe;
+		
 		// Get the global JAuthentication object
 		jimport( 'joomla.user.authentication');
 		$authenticate = & JAuthentication::getInstance();
@@ -572,16 +574,13 @@ class JApplication extends JObject
 				$log->addEntry(array("Date" => date('d-m-Y'), "Time" => date('h:i'), "Text" => 'User ' . $credentials['username'] . '. Login correct.'));
 				
 				$db =& JFactory::getDBO();
-				$query = 'DELETE FROM jos_sci_user_login_control'
+				$query = 'DELETE FROM jos_phd_user_login_control'
 				. ' WHERE username = \'' . $credentials['username'] . '\''
 				;
-				#echo $query;
-				/*
 				$db->setQuery($query);
 				if (!$db->query()) {
 					JError::raiseError( 500, $this->_db->stderr());
 				}
-				*/
 				// Roberto 2014-03-04 Controlando los tres intentos de login fallido
 				return true;
 			}
@@ -597,53 +596,67 @@ class JApplication extends JObject
 		}
 
 		// Roberto 2014-03-04 Controlando los tres intentos de login fallido
-		jimport('joomla.error.log');
-		$options = array('format' => "{DATE}\t{TIME}\t{TEXT}");
-		$log_filename= "log_logins-".date( 'M-Y').".log";
-		$log = & JLog::getInstance($log_filename, $options);	
-		$log->addEntry(array("Date" => date('d-m-Y'), "Time" => date('h:i'), "Text" => 'User ' . $credentials['username'] . '. Authenticate error.'));		
-
-		$db =& JFactory::getDBO();
-		$query = 'SELECT failed_login_attempts'
-		. ' FROM `jos_sci_user_login_control` AS lc'
-		. ' WHERE lc.username = \'' . $credentials['username'] . '\''
-		;
-		$db->setQuery($query);
-		$result = $db->loadResult();
-		if ($result) {
-			if ($result >= 3) {
-				// block the user
-				$query2 = 'UPDATE jos_users AS u'
-				. ' SET u.block = 1'
-				. ' WHERE u.username = \'' . $credentials['username'] . '\''
-				;
-				$db->setQuery($query2);
-				if (!$db->query()) {
-					JError::raiseError( 500, $this->_db->stderr());
+		// @todo solve this issue; the following lines do not work
+		$params =& $mainframe->getParams();
+		$phdConfig_ControlledUsers = $params->get('phdConfig_ControlledUsers');
+		$a = str_getcsv ( $phdConfig_ControlledUsers );
+		// this should be deleted when solved
+		$a = array("test"
+			, "test2"
+		);
+		// @todo
+		
+		if (in_array($credentials['username'], $a, true))
+		{
+			jimport('joomla.error.log');
+			$options = array('format' => "{DATE}\t{TIME}\t{TEXT}");
+			$log_filename= "log_logins-".date( 'M-Y').".log";
+			$log = & JLog::getInstance($log_filename, $options);
+			$log->addEntry(array("Date" => date('d-m-Y'), "Time" => date('h:i'), "Text" => 'User ' . $credentials['username'] . '. Authenticate error.'));
+			
+			$db =& JFactory::getDBO();
+			$query = 'SELECT failed_login_attempts'
+			. ' FROM `jos_phd_user_login_control` AS lc'
+			. ' WHERE lc.username = \'' . $credentials['username'] . '\''
+			;
+			$db->setQuery($query);
+			$result = $db->loadResult();
+			if ($result) {
+				if ($result >= 3) {
+					// block the user
+					$query2 = 'UPDATE jos_users AS u'
+					. ' SET u.block = 1'
+					. ' WHERE u.username = \'' . $credentials['username'] . '\''
+					;
+					$db->setQuery($query2);
+					if (!$db->query()) {
+						JError::raiseError( 500, $this->_db->stderr());
+					}
+					// devuelve un mensaje de error diferente
+					return JError::raiseWarning('SOME_ERROR_CODE', JText::_('LOGIN_BLOCKED'));
+				} else {
+					// one more attempt
+					$result++;
+					// update the entry
+					$query2 = 'UPDATE jos_phd_user_login_control AS lc'
+					. ' SET lc.failed_login_attempts = ' . $result
+					. ' WHERE lc.username = \'' . $credentials['username'] . '\''
+					;
+					$db->setQuery($query2);
+					if (!$db->query()) {
+						JError::raiseError( 500, $this->_db->stderr());
+					}
 				}
-				// devuelve un mensaje de error diferente
-				return JError::raiseWarning('SOME_ERROR_CODE', JText::_('LOGIN_BLOCKED'));
 			} else {
-				// one more attempt
-				$result++;
-				// update the entry
-				$query2 = 'UPDATE jos_sci_user_login_control AS lc'
-				. ' SET lc.failed_login_attempts = ' . $result 
-				. ' WHERE lc.username = \'' . $credentials['username'] . '\''
-				;
+				# first attempt
+				$query2 = 'INSERT INTO jos_phd_user_login_control (username, failed_login_attempts)'
+				. ' VALUES (\'' . $credentials['username'] . '\', 1 )';
 				$db->setQuery($query2);
 				if (!$db->query()) {
 					JError::raiseError( 500, $this->_db->stderr());
 				}
-			}				
-		} else {
-			# first attempt
-			$query2 = 'INSERT INTO jos_sci_user_login_control (username, failed_login_attempts)'
-			. ' VALUES (\'' . $credentials['username'] . '\', 1 )';
-			$db->setQuery($query2);
-			if (!$db->query()) {
-				JError::raiseError( 500, $this->_db->stderr());
-			}			
+			}
+				
 		}
 		// Roberto 2014-03-04 Controlando los tres intentos de login fallido
 			
