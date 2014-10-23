@@ -1130,17 +1130,20 @@ class PhdControllerApplicant extends JController
 	
 		$params =& $mainframe->getParams();
 		$phdConfig_DocsPath = $params->get('phdConfig_DocsPath');
-	
+		
 		$applicant_id = $get['id'];
 		$model =& JModel::getInstance( 'applicant', 'phdmodel' );
 		$model->setId( $applicant_id );
 		$applicant =& $model->getData();
 	
 		$sourcePath = $phdConfig_DocsPath."/".$applicant->directory;
-	
 		//$outZipPath = $phdConfig_DocsPath."/".$applicant_id."/".$applicant_id.'.zip';
-		$outZipPath =  JPATH_ROOT . '/tmp/'.$applicant->directory.'.zip';
-	
+        //$outZipPath =  JPATH_ROOT . '/tmp/'.$applicant->directory.'.zip';
+        $first = utf8_encode(trim($applicant->firstname, " \t\n\r\0\x0B"));
+        $last = utf8_encode(trim($applicant->lastname, " \t\n\r\0\x0B"));
+        $filename = $first . '_' . $last . '.zip';
+        $outZipPath =  JPATH_ROOT . '/tmp/' . $filename;
+			
 		$pathInfo = pathInfo($sourcePath);
 		$parentPath = $pathInfo['dirname'];
 		$dirName = $pathInfo['basename'];
@@ -1166,55 +1169,52 @@ class PhdControllerApplicant extends JController
 				// Remove prefix from file path before add to zip.
 				$localPath = substr($filePath, $exclusiveLength);
 				if (is_file($filePath)) {
-				$zipFile->addFile($filePath, $localPath);
+					$zipFile->addFile($filePath, $localPath);
 					$log_zip->addEntry(array('comment' =>'Added file '.$localPath.' to '.$filePath));
 				} elseif (is_dir($filePath)) {
-				// Add sub-directory.
-				$zipFile->addEmptyDir($localPath);
-				//self::folderToZip($filePath, $zipFile, $exclusiveLength);
-					}
-					}
-					}
-					$log_zip->addEntry(array('comment' =>'Ending ZIP'));
-					closedir($handle);
-	
-					$z->close();
-	
-					//LOG all logins
-					$user 	=& JFactory::getUser();
-					$options = array('format' => "{DATE}\t{TIME}\t{IP}\t{NAME}\t{FILENAME}\t{APPLICANT}");
-					$ip_address = $_SERVER['REMOTE_ADDR'];
-					$log_filename= "file_access-".date( 'M-Y').".log";
-					$log = & JLog::getInstance($log_filename, $options);
-					$log->addEntry(array("Date" => date('d-m-Y'),"Time" => date('h:i'),"IP" => $ip_address,"Name"=>$user->name,"Filename"=>$applicant->directory.'.zip',"Applicant"=>$applicant->lastname.', '.$applicant->firstname));
-					//END LOG
-	
-					$filename = $applicant->directory.'.zip';
-					$log_zip->addEntry(array('comment' =>'Filename: '.$filename));
-							$log_zip->addEntry(array('comment' =>'Filesize: '.filesize($outZipPath)));
-									$log_zip->addEntry(array('comment' =>'Read from: '.$outZipPath));
-	
-					header('Content-Description: File Transfer');
-					header('Content-Type: application/zip');
-					header('Content-Disposition: attachment; filename='.$filename);
-					header('Content-Transfer-Encoding: binary');
-					header('Expires: 0');
-					header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-					header('Pragma: public');
-					header('Content-Length: ' . filesize($outZipPath));
-					ob_clean();
-					readfile($outZipPath);
-					exit;
-					//@unlink($outZipPath);
-					 
-					/*header("Content-type: application/zip; filename=".$applicant->directory.".zip" );
-					header("Content-Transfer-Encoding: base64");
-					header("Content-Disposition: attachment; filename=".$applicant->directory.".zip");
-					header("Content-Length: ".filesize($path));
-					readfile("$path");*/
+					// Add sub-directory.
+					$zipFile->addEmptyDir($localPath);
+					//self::folderToZip($filePath, $zipFile, $exclusiveLength);
+				}
+			}
 		}
-	
+		$log_zip->addEntry(array('comment' =>'Ending ZIP'));
+		closedir($handle);
 
+		$z->close();
+
+		//LOG all logins
+		$user 	=& JFactory::getUser();
+		$options = array('format' => "{DATE}\t{TIME}\t{IP}\t{NAME}\t{FILENAME}\t{APPLICANT}");
+		$ip_address = $_SERVER['REMOTE_ADDR'];
+		$log_filename= "file_access-".date( 'M-Y').".log";
+		$log = & JLog::getInstance($log_filename, $options);
+		$log->addEntry(array("Date" => date('d-m-Y'),"Time" => date('h:i'),"IP" => $ip_address,"Name"=>$user->name,"Filename"=>$filename,"Applicant"=>$applicant->lastname.', '.$applicant->firstname));
+		//END LOG
+
+		$log_zip->addEntry(array('comment' =>'Filename: '.$filename));
+				$log_zip->addEntry(array('comment' =>'Filesize: '.filesize($outZipPath)));
+						$log_zip->addEntry(array('comment' =>'Read from: '.$outZipPath));
+
+		header('Content-Description: File Transfer');
+		header('Content-Type: application/zip');
+		header('Content-Disposition: attachment; filename='.$filename);
+		header('Content-Transfer-Encoding: binary');
+		header('Expires: 0');
+		header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+		header('Pragma: public');
+		header('Content-Length: ' . filesize($outZipPath));
+		ob_clean();
+		readfile($outZipPath);
+		exit;
+		//@unlink($outZipPath);
+		 
+		/*header("Content-type: application/zip; filename=".$applicant->directory.".zip" );
+		header("Content-Transfer-Encoding: base64");
+		header("Content-Disposition: attachment; filename=".$applicant->directory.".zip");
+		header("Content-Length: ".filesize($path));
+		readfile("$path");*/
+	}
 }
 
 ?>

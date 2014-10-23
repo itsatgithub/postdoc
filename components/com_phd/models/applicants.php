@@ -120,8 +120,12 @@ class PhdModelApplicants extends JModel
 	 */
 	function _buildQuery()
 	{
-		$query = 'SELECT DISTINCT a.id AS id, a.firstname AS firstname'
-		. ', a.lastname AS lastname, a.submit_date AS submit_date, st.short_description AS status'
+		// Roberto 2014-23-10 
+		// Selecciono todos los campos y no solo los usados. Necesario para el fichero zip total
+		//$query = 'SELECT DISTINCT a.id AS id, a.firstname AS firstname'
+		//. ', a.lastname AS lastname, a.submit_date AS submit_date, st.short_description AS status'
+		// Roberto 2014-23-10
+		$query = 'SELECT DISTINCT a.*, st.short_description AS status'
 		. ' FROM `#__phd_applicants` AS a'
 		. ' LEFT JOIN `#__phd_status` AS st ON st.id = a.status_id'
 		. ' LEFT JOIN `#__phd_applicant_programme` AS ap ON ap.applicant_id = a.id'
@@ -130,6 +134,7 @@ class PhdModelApplicants extends JModel
 		. $this->_buildQueryWhere()
 		. $this->_buildQueryOrderBy();
 		;
+		
 
 		return $query;
 	}
