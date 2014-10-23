@@ -597,9 +597,9 @@ class JApplication extends JObject
 
 		// Roberto 2014-03-04 Controlando los tres intentos de login fallido
 		// @todo solve this issue; the following lines do not work
-		$params =& $mainframe->getParams();
-		$phdConfig_ControlledUsers = $params->get('phdConfig_ControlledUsers');
-		$a = str_getcsv ( $phdConfig_ControlledUsers );
+		//$params =& $mainframe->getParams();
+		//$phdConfig_ControlledUsers = $params->get('phdConfig_ControlledUsers');
+		//$a = str_getcsv ( $phdConfig_ControlledUsers );
 		// this should be deleted when solved
 		$a = array("test"
 			, "test2"
