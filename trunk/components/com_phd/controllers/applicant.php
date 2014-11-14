@@ -806,6 +806,11 @@ class PhdControllerApplicant extends JController
 			$mailer =& JFactory::getMailer();
 
 			$mailer->setSender(array($phdConfig_AdminEmail, $phdConfig_AdminName));
+			// Roberto 2014-14-11. BCC to the administrator if configured
+			if ($params->get('phdConfig_SendBCC')) {
+				$mailer->addBCC($params->get('phdConfig_AdminEmail'));
+			}
+			// Roberto 2014-14-11. BCC to the administrator if configured
 			$mailer->setSubject($message->mail_subject);
 				
 			$mailer->setBody($message_text);
