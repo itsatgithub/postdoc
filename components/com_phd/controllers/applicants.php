@@ -62,13 +62,9 @@ class PhdControllerApplicants extends JController
 		$model =& JModel::getInstance( 'applicants', 'phdmodel' );
 		$items =& $model->getData();
 		
-		/*
-		$log_zip = &JLog::getInstance('create_zip.log');
-		$log_zip->addEntry(array('comment' => 'sourcePath:'.$sourcePath.',outPath:'
-				.$outZipPath.'pathInfo:'.$pathInfo.',parentPath:'.$parentPath.',dirName:'.$dirName));
-		*/
-		
 		$z = new ZipArchive();
+		$log_zip = &JLog::getInstance('create_zip.log'); //fichero de log en (joomla)/logs
+		$log_zip->addEntry(array('comment' =>'Starting ZIP'));
 		$filename = 'all_candidates.zip';
 		$outZipPath =  JPATH_ROOT . '/tmp/' . $filename;
 		$z->open($outZipPath, ZIPARCHIVE::CREATE);
@@ -76,50 +72,41 @@ class PhdControllerApplicants extends JController
 		foreach ($items as $applicant)
 		{
 			$sourcePath = $phdConfig_DocsPath."/".$applicant->directory;
-			//$first = mb_strtolower(strtr(utf8_decode($applicant->firstname), utf8_decode("ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÜÚ"), utf8_decode("àáâãäåæçèéêëìíîïðñòóôõöøùüú")));
-			//$last = mb_strtolower(strtr(utf8_decode($applicant->lastname), utf8_decode("ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÜÚ"), utf8_decode("àáâãäåæçèéêëìíîïðñòóôõöøùüú")));
-			//$first = utf8_encode(trim($applicant->firstname, " \t\n\r\0\x0B"));
-			//$last = utf8_encode(trim($applicant->lastname, " \t\n\r\0\x0B"));
-			//$filename = $first . '_' . $last . '.zip';
-			//$outZipPath =  JPATH_ROOT . '/tmp/' . $filename;
-
 			$pathInfo = pathInfo($sourcePath);
 			$parentPath = $pathInfo['dirname'];
 			$dirName = $pathInfo['basename'];
 		
-			$log_zip = &JLog::getInstance('create_zip.log');
-			$log_zip->addEntry(array('comment' => 'sourcePath:'.$sourcePath.',outPath:'
-					.$outZipPath.'pathInfo:'.$pathInfo.',parentPath:'.$parentPath.',dirName:'.$dirName));
+			$log_zip->addEntry(array('comment' => 'sourcePath:'
+				.$sourcePath.',outPath:'
+				.$outZipPath.'pathInfo:'
+				.$pathInfo.',parentPath:'
+				.$parentPath.',dirName:'
+				.$dirName));
 
 			$z->addEmptyDir($dirName);
-			
 			$exclusiveLength = strlen("$parentPath/");
-			$folder= $sourcePath;
-			$zipFile= $z;
+			$folder = $sourcePath;
+			$zipFile = $z;
 			
 			$handle = opendir($folder);
-			$log_zip->addEntry(array('comment' =>'Starting ZIP'));
 			while (false !== $f = readdir($handle)) {
 				if ($f != '.' && $f != '..') {
 					$filePath = "$folder/$f";
-					// Remove prefix from file path before add to zip.
 					$localPath = substr($filePath, $exclusiveLength);
 					if (is_file($filePath)) {
 						$zipFile->addFile($filePath, $localPath);
 						$log_zip->addEntry(array('comment' =>'Added file '.$localPath.' to '.$filePath));
 					} elseif (is_dir($filePath)) {
-						// Add sub-directory.
-						$zipFile->addEmptyDir($localPath);
-						//self::folderToZip($filePath, $zipFile, $exclusiveLength);
+						$log_zip->addEntry(array('comment' =>'Added dir '.$localPath));
 					}
 				}
 			}
-			$log_zip->addEntry(array('comment' =>'Ending ZIP'));
 			closedir($handle);
 		}
 		
+		$log_zip->addEntry(array('comment' =>'Ending ZIP'));
 		$z->close();
-		
+				
 		//LOG all logins
 		$user 	=& JFactory::getUser();
 		$options = array('format' => "{DATE}\t{TIME}\t{IP}\t{NAME}\t{FILENAME}\t{APPLICANT}");
