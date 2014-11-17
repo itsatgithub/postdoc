@@ -35,10 +35,6 @@
 			<option value="1">only the first choice</option>
 			<option value="2">all the choices</option>
 		</param>
-		<param name="phdConfig_ControlledUsers" type="text" default=""
-			label="User list" description="User list to control the number of logins" />
-		
-		
 		<param name="@spacer" type="spacer" default="" label=""
 			description="" />
 		<param name="phdConfig_InvalidEmailProviders" type="text" default="gmail, yahoo"
