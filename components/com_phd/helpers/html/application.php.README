@@ -20,3 +20,5 @@ CREATE TABLE `jos_phd_user_login_control` (
   PRIMARY KEY  (`username`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+Update 2014-11-17: The users to be blocked are checked against the table 'jos_phd_users'. Other users performing failed
+login attempts will not be blocked.
