@@ -1187,14 +1187,14 @@ class PhdControllerApplicant extends JController
 
 		$z->close();
 
-		// log all downloads
-		$user =& JFactory::getUser();
+		//LOG all logins
+		$user 	=& JFactory::getUser();
 		$options = array('format' => "{DATE}\t{TIME}\t{IP}\t{NAME}\t{FILENAME}\t{APPLICANT}");
 		$ip_address = $_SERVER['REMOTE_ADDR'];
 		$log_filename= "file_access-".date( 'M-Y').".log";
 		$log = & JLog::getInstance($log_filename, $options);
 		$log->addEntry(array("Date" => date('d-m-Y'),"Time" => date('h:i'),"IP" => $ip_address,"Name"=>$user->name,"Filename"=>$filename,"Applicant"=>$applicant->lastname.', '.$applicant->firstname));
-		// end log
+		//END LOG
 
 		$log_zip->addEntry(array('comment' =>'Filename: '.$filename));
 				$log_zip->addEntry(array('comment' =>'Filesize: '.filesize($outZipPath)));
