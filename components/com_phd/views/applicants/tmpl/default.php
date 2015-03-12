@@ -19,12 +19,10 @@ defined('_JEXEC') or die('Restricted access'); ?>
 </div>
 <?php endif; ?>
 
-<?php if(count( $this->items ) != '0') { ?>
-	<?php echo JText::_( 'DOWNLOAD1' ); ?>
-	<b><a href='<?php echo $_SERVER['PHP_SELF'];?>?option=com_phd&controller=applicants&task=make_total_zip'> download a complete zip file</a></b>
-	<?php echo JText::_( 'DOWNLOAD2' ); ?>
-	<br>
-<?php } ?>
+<?php echo JText::_( 'DOWNLOAD1' ); ?>
+<b><a href='<?php echo $_SERVER['PHP_SELF'];?>?option=com_phd&controller=applicants&task=make_total_zip'> download a complete zip file</a></b>
+<?php echo JText::_( 'DOWNLOAD2' ); ?>
+<br>
 
 <!-- 
 <?php if(count( $this->items ) != '0') { ?>
