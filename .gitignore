@@ -3,4 +3,4 @@
 .settings
 configuration.php
 administrator/cache/*
-
+tools/com_phd/build/*
