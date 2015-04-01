@@ -1,0 +1,24 @@
+Author: Roberto Bartolomé
+Date: 2014-09-010
+
+In order to implement the automatic block of users when they fail 3 or more login attempts
+the file application.php of the Joomla core has been modified. So when installing this component 
+it is needed to manually install the modified file by executing the command:
+
+$ cp components/<component>/helpers/html/application.php.tobeinstalled \
+libraries/joomla/application/application.php
+
+The database shall be modified using the command:
+
+-- 
+-- Table structure for table `jos_phd_user_login_control`
+-- 
+
+CREATE TABLE `jos_phd_user_login_control` (
+  `username` varchar(20) NOT NULL,
+  `failed_login_attempts` tinyint(1) NOT NULL,
+  PRIMARY KEY  (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+Update 2014-11-17: The users to be blocked are checked against the table 'jos_phd_users'. Other users performing failed
+login attempts will not be blocked.
