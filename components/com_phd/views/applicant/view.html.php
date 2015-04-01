@@ -34,7 +34,7 @@ class PhdViewApplicant extends JView
 		$user =& JFactory::getUser();
 		$uri =& JFactory::getURI();
 		$params =& $mainframe->getParams();
-
+		
 		//Check to be authenticated
 		if (!$user->id) {
 			echo JText::_( 'ALERTNOTAUTH' );

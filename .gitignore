@@ -1,2 +1,6 @@
+.buildpath
+.project
+.settings
 configuration.php
+administrator/cache/*
 
