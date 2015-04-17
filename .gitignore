@@ -4,3 +4,4 @@
 configuration.php
 administrator/cache/*
 tools/com_phd/build/*
+tools/com_phd/zips/*
