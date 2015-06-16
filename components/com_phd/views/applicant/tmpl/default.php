@@ -409,28 +409,38 @@ echo $this->action;
 					type='file' class='inputbox' name='uploaded_file' /> <?php
 					echo ($this->applicant->career_breaks_filename) ? "<img src='./administrator/images/tick.png'> File Uploaded" : '';
 					?> <?php
-					if ($this->applicant->career_breaks_filename):
-					?> <?php
-					$filepath = JPath::clean(JURI::base(true) . $this->params->get('phdConfig_DocsPath') . DS . $this->applicant->id . DS . $this->applicant->career_breaks_filename);
-					?> <a href='<?php
+    if ($this->applicant->career_breaks_filename):
+?> 
+    <a href='<?php echo $_SERVER['PHP_SELF'];
+?>?option=com_phd&controller=applicant&task=download_file&person=<?php echo $this->applicant->id; ?>&file=<?php echo $this->applicant->career_breaks_filename; ?>' target="_blank"><?php echo JText::_('LABEL_DOWNLOAD'); ?></a>
+    <?php /*
+        $filepath = JPath::clean(JURI::base(true) . $this->params->get('phdConfig_DocsPath') . DS . $this->applicant->id . DS . $this->applicant->career_breaks_filename);
+?> <a href='<?php
         echo $filepath;
 ?>' style="color: blue;"
-					target="_blank"><?php
-					echo JText::_('LABEL_DOWNLOAD');
-					?> </a> <?php
-					endif;
-					?> <?php
+				target="_blank"><?php
+        echo JText::_('LABEL_DOWNLOAD');
+?></a> <?php */
+    endif;
+										?> <?php
 					else:
-					if ($this->applicant->career_breaks_filename):
-					$filepath = JPath::clean(JURI::base(true) . $this->params->get('phdConfig_DocsPath') . DS . $this->applicant->id . DS . $this->applicant->career_breaks_filename);
-					?> <a href='<?php
+    if ($this->applicant->career_breaks_filename): ?>
+<a href='<?php echo $_SERVER['PHP_SELF'];
+?>?option=com_phd&controller=applicant&task=download_file&person=<?php echo $this->applicant->id; ?>&file=<?php echo $this->applicant->career_breaks_filename; ?>' target="_blank"><?php echo $this->applicant->career_breaks_filename; ?></a>
+<?php
+        /*$filepath = JPath::clean(JURI::base(true) . $this->params->get('phdConfig_DocsPath') . DS . $this->applicant->id . DS . $this->applicant->career_breaks_filename);
+?>
+			<a href='<?php
         echo $filepath;
 ?>' style="color: blue;"
-					target="_blank"><?php
-					echo $this->applicant->career_breaks_filename;
-					?> </a> <?php
-					endif;
-					?> <?php
+				target="_blank"><?php
+        echo $this->applicant->career_breaks_filename;
+?></a>
+				<?php*/
+        
+        
+    endif;
+										?> <?php
 					endif;
 					?>
 				</td>
@@ -1769,13 +1779,20 @@ if (count($this->applicant->referees) > 0):
 		?>
 		<td><?php
 		if ($referee->filename):
-		?> <a
+/*		?> <a
 			href="<?php
                 echo JPath::clean(JURI::base(true) . $this->params->get('phdConfig_DocsPath') . DS . $this->applicant->id . DS . $referee->filename);
 ?>"
 			style="color: blue;" target="_blank"><?php
 			echo $referee->filename;
-			?> </a> <?php
+			?> </a>
+			
+			<?php*/
+		?>
+		<a href='<?php echo $_SERVER['PHP_SELF'];
+		?>?option=com_phd&controller=applicant&task=download_file&person=<?php echo $this->applicant->id; ?>&file=<?php echo $referee->filename; ?>' target="_blank"><?php echo $referee->filename; ?></a>                    
+		 <?php
+				
 			endif;
 			?> <!--
 		<?php
