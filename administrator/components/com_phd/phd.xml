@@ -2,10 +2,10 @@
 <install type="component" version="1.5.0" method="upgrade">
 	<name>PhD</name>
 	<author>GPL@vui</author>
-	<creationDate>2015-03-12</creationDate>
+	<creationDate>2015-06-16</creationDate>
 	<license>GNU/GPL</license>
-	<version>2.13</version>
-	<description>Postdoc Programme aplication. Ticket TGO-839288.</description>
+	<version>2.14</version>
+	<description>Postdoc Programme aplication. Corregida la subida de archivos.</description>
 
 	<!-- installation part -->
 	<install>
