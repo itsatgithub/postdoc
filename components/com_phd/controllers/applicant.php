@@ -554,6 +554,10 @@ class PhdControllerApplicant extends JController
 		$post = JRequest::get( 'post' );
 		$file = JRequest::getVar('uploaded_file', '', 'FILES', 'array');
 		
+                $model =& $this->getModel('applicant');
+		$model->setId($post['id']);
+		$applicant =& $model->getData();
+		
 		// roberto 2011-09-21 No se admiten cuentas de correo de ciertos proveedores.
 		// Peticion de Patricia Nadal
 		$phdConfig_InvalidEmailProviders = str_replace(" ", "", $phdConfig_InvalidEmailProviders);
@@ -569,11 +573,11 @@ class PhdControllerApplicant extends JController
 		}
 
 		// upload the file
-		if (isset($file['name']))
+		if ((isset($file['name'])) && (!empty($file['name'])))
 		{
 			$file['name']  = JFile::makeSafe($file['name']);
-			$filepath = JPath::clean(JPATH_ROOT.DS.$phdConfig_DocsPath.DS.$post['id'].DS.$file['name']);
-
+			$filepath = JPath::clean($phdConfig_DocsPath.DS.$applicant->directory.DS.$file['name']);
+			
 			if (JFile::exists($filepath)) {
 				$mainframe->enqueueMessage( JText::_('FILE_EXISTS') , 'error');
 				return;
@@ -586,7 +590,7 @@ class PhdControllerApplicant extends JController
 
 			//remove old file if exists
 			if (isset($post['old_filename'])){
-				$filepath_to_delete = JPath::clean(JPATH_ROOT.DS.$phdConfig_DocsPath.DS.$post['id'].DS.$post['old_filename']);
+				$filepath_to_delete = JPath::clean($phdConfig_DocsPath.DS.$applicant->directory.DS.$post['old_filename']);
 				if (!JFile::delete($filepath_to_delete)) {
 					$mainframe->enqueueMessage( JText::_('FILE_DELETION_KO') , 'error');
 					return;
@@ -683,8 +687,8 @@ class PhdControllerApplicant extends JController
 		$model =& $this->getModel('applicant');
 		$applicant_id = $get['id'];
 
-		$store = $model->deleteReferee($get['referee_id']);
-
+		$store = $model->deleteReferee($get['referee_id'], $applicant_id);
+		
 		JRequest::setVar('view', 'applicant' );
 		JRequest::setVar('id', $applicant_id );
 		JRequest::setVar('active_tab', '3' );
