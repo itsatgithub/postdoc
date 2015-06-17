@@ -1589,8 +1589,12 @@ endif;
 ?>
 
 <?php
-
-if (count($this->applicant->files) >= $this->params->get('phdConfig_MaxNumberOfFiles')):
+/*
+ * 2012-11-30 Roberto. Contamos los ficheros de la base de detos cada vez
+*/
+if (JHTML::_('phdhelper.countFiles', $this->applicant->id) >= $this->params->get('phdConfig_MaxNumberOfFiles')): /*
+* 2012-11-30 Roberto. Fin de cambios
+*/
 echo JText::_('MAX_NUM_FILES_REACHED');
 elseif ($this->rights == 'write'):
 ?>

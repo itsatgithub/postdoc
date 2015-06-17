@@ -480,7 +480,7 @@ class PhdControllerApplicant extends JController
 		}
 
 		// store data. the function returns the saved id
-		$model =& $this->getModel('applicant');
+		//$model =& $this->getModel('applicant');
 		$applicant_id = $post['id'];
 		$data['description'] = $post['description'];
 		$data['doc_type_id'] = $post['doc_type_id'];
