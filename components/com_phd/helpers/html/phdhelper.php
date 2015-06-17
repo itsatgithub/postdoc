@@ -321,6 +321,24 @@ class JHTMLPhdHelper
 	}
 
 	/**
+	 * Count the user files
+	 *
+	 * @param integer $applicant_id Applicant id
+	 * @return num Number of files
+	 */
+	function countFiles( $applicant_id )
+	{
+		$db =& JFactory::getDBO();
+		$query = "SELECT *"
+		. " FROM #__phd_docs"
+		. " WHERE applicant_id = '$applicant_id'"
+		;
+		$db->setQuery( $query );
+		$rows = $db->loadObjectList();
+		return (count($rows));
+	}
+	
+	/**
 	 * Check if a determinate user have already introduced his motivation letter
 	 *
 	 * @param integer $applicant_id Applicant id

@@ -2120,7 +2120,7 @@ if (($this->rights == 'write')):
 					?>>
 						<?php
 						echo JText::_('Save');
-						?>
+						?>f
 					</button>
 					<button onclick="window.history.go(-1);return false;"
 						<?php
@@ -2693,28 +2693,28 @@ endif;
 				echo ($this->applicant->additional_info_filename) ? "<img src='./administrator/images/tick.png'> File Uploaded" : '';
 				?> <?php
 				if ($this->applicant->additional_info_filename):
-				?> <?php
-				$filepath = JPath::clean(JURI::base(true) . $this->params->get('phdConfig_DocsPath') . DS . $this->applicant->id . DS . $this->applicant->additional_info_filename);
-				?> <a href='<?php
-            echo $filepath;
-?>'
-				style="color: blue;" target="_blank"><?php
-				echo JText::_('LABEL_DOWNLOAD');
-				?> </a> <?php
+					?> <?php
+					?>				
+					<a href='<?php echo $_SERVER['PHP_SELF'];
+					?>?option=com_phd&controller=applicant&task=download_file&person=<?php echo $this->applicant->id; ?>&file=<?php echo $this->applicant->additional_info_filename; ?>'
+					style="color: blue;" target="_blank">
+					<?php echo JText::_('LABEL_DOWNLOAD'); ?>
+					</a>			
+					<?php
 				endif;
 				?> <?php
-				else:
+			else:
 				if ($this->applicant->additional_info_filename):
-				$filepath = JPath::clean(JURI::base(true) . $this->params->get('phdConfig_DocsPath') . DS . $this->applicant->id . DS . $this->applicant->additional_info_filename);
-				?> <a href='<?php
-            echo $filepath;
-?>'
-				style="color: blue;" target="_blank"><?php
-				echo $this->applicant->additional_info_filename;
-				?> </a> <?php
+					?>				
+					<a href='<?php echo $_SERVER['PHP_SELF'];
+					?>?option=com_phd&controller=applicant&task=download_file&person=<?php echo $this->applicant->id; ?>&file=<?php echo $this->applicant->additional_info_filename; ?>'
+					style="color: blue;" target="_blank">
+					<?php echo $this->applicant->additional_info_filename; ?>
+					</a>				
+					<?php
 				endif;
 				?> <?php
-				endif;
+			endif;
 				?>
 			</td>
 		</tr>
