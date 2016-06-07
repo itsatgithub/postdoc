@@ -1551,8 +1551,8 @@ if (count($this->applicant->files) > 0):
         echo $file->filename;
 ?></a--> <a
 			href='<?php echo $_SERVER['PHP_SELF'];
-?>?option=com_phd&controller=applicant&task=download_file&person=<?php echo $this->applicant->id; ?>&file=<?php echo $file->filename; ?>'
-			target="_blank"><?php echo $file->filename; ?> </a>
+?>?option=com_phd&controller=applicant&task=download_file&person=<?php echo $this->applicant->id; ?>&file=<?php echo rawurlencode($file->filename); ?>'
+			target="_blank"><?php echo rawurlencode($file->filename); ?> </a>
 
 		</td>
 		<td><?php
