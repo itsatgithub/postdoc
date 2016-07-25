@@ -2,10 +2,10 @@
 <install type="component" version="1.5.0" method="upgrade">
 	<name>PhD</name>
 	<author>GPL@vui</author>
-	<creationDate>2015-06-18</creationDate>
+	<creationDate>2016-07-25</creationDate>
 	<license>GNU/GPL</license>
-	<version>2.16</version>
-	<description>Postdoc Programme aplication. Corregida la subida de archivos.</description>
+	<version>2.17</version>
+	<description>Postdoc Programme aplication. Unificar versiones con operación.</description>
 
 	<!-- installation part -->
 	<install>
